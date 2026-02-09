@@ -1,0 +1,34 @@
+Link {
+  text-decoration: none;
+}
+
+.nf-img {
+  width: 269px;
+  height: 297px;
+}
+
+.nf-desc {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #989898;
+  margin: 0px;
+  width: 50%;
+}
+
+.home-btn {
+  border: none;
+  outline: none;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 8px 10px 8px 10px;
+  background: #4094ef;
+  margin-top: 15px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}

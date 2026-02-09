@@ -1,0 +1,165 @@
+.user-profile-container {
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+
+.user-profile-inner {
+  width: 90%;
+  max-width: 1110px;
+  margin: auto;
+  padding: 32px 0;
+}
+
+/* Top section */
+.user-profile-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.user-profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 90px;
+  object-fit: cover;
+  margin-right: 64px;
+}
+
+.user-profile-details {
+  font-family: 'Roboto';
+}
+
+.user-profile-name {
+  font-size: 32px;
+  font-weight: 300;
+  color: #262626;
+  margin-bottom: 16px;
+}
+
+.user-profile-stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 16px;
+}
+
+.user-profile-stat {
+  font-size: 16px;
+  color: #262626;
+}
+
+.user-profile-stat span {
+  font-weight: 500;
+}
+
+.user-profile-bio {
+  font-size: 16px;
+  color: #262626;
+  max-width: 600px;
+}
+
+/* Stories */
+.user-stories-list {
+  display: flex;
+  gap: 32px;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 32px;
+}
+
+.user-story-item {
+  text-align: center;
+}
+
+.user-story-img {
+  width: 88px;
+  height: 88px;
+  border-radius: 44px;
+  object-fit: cover;
+  border: 2px solid #dbdbdb;
+}
+
+.user-story-name {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #262626;
+}
+
+/* Posts */
+.user-posts-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 500;
+  color: #262626;
+  margin-bottom: 16px;
+}
+
+.user-posts-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.user-post-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* No posts */
+.user-no-posts {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.user-no-posts-img {
+  width: 86px;
+  margin-bottom: 16px;
+}
+
+.user-no-posts-text {
+  font-size: 20px;
+  font-weight: 500;
+  color: #262626;
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+  .user-profile-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .user-profile-pic {
+    width: 96px;
+    height: 96px;
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+
+  .user-profile-name {
+    font-size: 24px;
+  }
+
+  .user-profile-stats {
+    gap: 16px;
+  }
+
+  .user-stories-list {
+    gap: 16px;
+  }
+
+  .user-story-img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .user-posts-list {
+    gap: 4px;
+  }
+}

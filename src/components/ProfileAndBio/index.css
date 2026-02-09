@@ -1,0 +1,128 @@
+.my-profile-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0 40px 0;
+  font-family: Roboto;
+}
+
+.top-section {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.user-id {
+  margin: 0px;
+  font-weight: 800;
+  color: #262626;
+  font-size: 16px;
+}
+
+.bio-pic {
+  height: 180px;
+  width: 180px;
+  border-radius: 100%;
+  margin-right: 50px;
+}
+
+.bio-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.stats-container {
+  display: flex;
+}
+
+.total-count {
+  font-weight: 800;
+  color: #262626;
+  margin-right: 30px;
+  font-size: 16px;
+}
+
+.tag {
+  color: #262626;
+  font-weight: 400;
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+.user-bio {
+  color: #262626;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.stories-container {
+  display: flex;
+  list-style-type: none;
+  padding: 0px;
+  width: 80%;
+  margin-top: 40px;
+}
+
+.separator {
+  border: 1px solid #c6c6c8;
+  width: 80%;
+}
+
+.post-icon-container {
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
+.grid {
+  height: 30px;
+  width: 30px;
+  margin-right: 20px;
+}
+
+.post-hd {
+  font-size: 28px;
+}
+
+.post-container {
+  display: flex;
+  width: 80%;
+  padding: 0px;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0px;
+}
+
+.no-posts-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.cam-container {
+  height: 80px;
+  width: 80px;
+  border: 1px solid #262626;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.cam-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.no-posts {
+  color: #262626;
+  font-weight: 300;
+  margin: 0px;
+  font-size: 36px;
+}
