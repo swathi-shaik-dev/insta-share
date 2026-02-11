@@ -15,7 +15,12 @@ const apiStatus = {
 }
 
 class SearchResults extends Component {
-  state = {status: apiStatus.initial, searchedPosts: [], searchValue: ''}
+  state = {
+    status: apiStatus.initial,
+    searchedPosts: [],
+    searchValue: '',
+    show: true,
+  }
 
   componentDidMount() {
     this.syncSearchFromURL()
@@ -40,7 +45,7 @@ class SearchResults extends Component {
   }
 
   getSearchedPosts = async () => {
-    this.setState({status: apiStatus.loading})
+    this.setState({status: apiStatus.loading, show: false})
     const jwtToken = Cookies.get('jwt_token')
     const {searchValue} = this.state
     const apiUrl = `https://apis.ccbp.in/insta-share/posts?search=${searchValue}`
@@ -85,7 +90,7 @@ class SearchResults extends Component {
         type="button"
         onClick={this.getSearchedPosts}
       >
-        Retry
+        Try again
       </button>
     </div>
   )
@@ -97,26 +102,10 @@ class SearchResults extends Component {
   )
 
   renderSearchedPosts = () => {
-    const {searchedPosts, searchValue} = this.state
+    const {searchedPosts} = this.state
     const noResults = searchedPosts.length === 0
     return (
       <div className="search-results-container">
-        <div className="mobile-search-view">
-          <input
-            placeholder="Search Caption"
-            className="search-input"
-            type="search"
-            value={searchValue}
-            onChange={this.onMobileSearch}
-          />
-          <button
-            onClick={this.getSearchedPosts}
-            type="button"
-            className="search-btn"
-          >
-            <FaSearch className="search-icon" />
-          </button>
-        </div>
         {noResults ? (
           <div className="container">
             <img
@@ -124,7 +113,7 @@ class SearchResults extends Component {
               alt="search not found"
               className="fail-img"
             />
-            <h1 className="nf-desc">Search Not Found</h1>
+            <h1 className="nf-hd">Search Not Found</h1>
             <p className="nf-desc">Try different keyword or search again</p>
           </div>
         ) : (
@@ -156,9 +145,37 @@ class SearchResults extends Component {
   }
 
   render() {
+    const {searchValue, show} = this.state
     return (
       <>
         <Header />
+        <div className="mobile-search-view">
+          <input
+            placeholder="Search Caption"
+            className="search-input"
+            type="search"
+            value={searchValue}
+            onChange={this.onMobileSearch}
+          />
+          <button
+            onClick={this.getSearchedPosts}
+            type="button"
+            className="search-btn"
+          >
+            <FaSearch className="search-icon" />
+          </button>
+        </div>
+        {show && (
+          <div className="search-message">
+            <img
+              className="search-msg-icon"
+              alt="search"
+              src="https://res.cloudinary.com/dmuosjfgv/image/upload/v1770809791/Frame_1473_pckgra.png"
+            />
+            <h1 className="message">Search Results will be appear here</h1>
+          </div>
+        )}
+
         {this.renderPage()}
       </>
     )

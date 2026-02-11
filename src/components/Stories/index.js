@@ -35,10 +35,6 @@ class Stories extends Component {
     this.getStories()
   }
 
-  onRetry = () => {
-    this.getStories()
-  }
-
   getStories = async () => {
     this.setState({status: apiStatus.loading})
     const jwtToken = Cookies.get('jwt_token')
@@ -77,12 +73,12 @@ class Stories extends Component {
         {userStories.map(each => {
           const {userId, userName, storyUrl} = each
           return (
-            <div key={userId}>
+            <li key={userId}>
               <div className="story-container">
                 <img className="story-img" alt="user story" src={storyUrl} />
-                <p className="user-name">{userName}</p>
+                <p className="story-user-name">{userName}</p>
               </div>
-            </div>
+            </li>
           )
         })}
       </Slider>
@@ -91,9 +87,14 @@ class Stories extends Component {
 
   renderFailureView = () => (
     <div className="failure-container">
+      <img
+        src="https://res.cloudinary.com/dmuosjfgv/image/upload/v1770545709/Group_7522_gwjh2z.png"
+        alt="failure view"
+        className="fail-img"
+      />
       <p className="desc">Something went wrong. Please try again</p>
-      <button onClick={this.onRetry} className="retry-btn" type="button">
-        Retry
+      <button type="button" onClick={this.getStories} className="retry-btn">
+        Try again
       </button>
     </div>
   )

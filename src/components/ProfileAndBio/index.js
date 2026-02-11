@@ -1,12 +1,10 @@
 import {BsGrid3X3} from 'react-icons/bs'
 import {BiCamera} from 'react-icons/bi'
-import ProfileStories from '../ProfileStories'
-import PostCard from '../PostCard'
 
 import './index.css'
 
 const ProfileAndBio = props => {
-  const {profile} = props
+  const {profile, isMyProfile} = props
   const {
     posts,
     stories,
@@ -20,10 +18,42 @@ const ProfileAndBio = props => {
   } = profile
   return (
     <div className="my-profile-container">
+      <div className="top-section-mobile">
+        <h1 className="user-name">{userName}</h1>
+        <div className="img-stats">
+          <img
+            className="bio-pic"
+            alt={isMyProfile ? 'my profile' : 'user profile'}
+            src={profilePic}
+          />
+          <div className="stats-container">
+            <div className="stats">
+              <p className="total-count">{postsCount}</p>
+              <p className="tag">posts</p>
+            </div>
+
+            <div className="stats">
+              <p className="total-count">{followersCount}</p>
+              <p className="tag">followers</p>
+            </div>
+
+            <div className="stats">
+              <p className="total-count">{followingCount}</p>
+              <p className="tag">following</p>
+            </div>
+          </div>
+        </div>
+        <p className="user-id">{userId}</p>
+        <p className="user-bio">{userBio}</p>
+      </div>
       <div className="top-section">
-        <img className="bio-pic" alt="user profile" src={profilePic} />
+        <img
+          className="bio-pic"
+          alt={isMyProfile ? 'my profile' : 'user profile'}
+          src={profilePic}
+        />
         <div className="bio-container">
-          <h1 className="no-posts">{userName}</h1>
+          <h1 className="user-name">{userName}</h1>
           <div className="stats-container">
             <p className="total-count">
               {postsCount}
@@ -44,9 +74,16 @@ const ProfileAndBio = props => {
           <p className="user-bio">{userBio}</p>
         </div>
       </div>
+
       <ul className="stories-container">
         {stories.map(each => (
-          <ProfileStories key={each.id} storyImg={each.image} />
+          <li key={each.id} className="story-item">
+            <img
+              className="story-image"
+              alt={isMyProfile ? 'my story' : 'user story'}
+              src={each.image}
+            />
+          </li>
         ))}
       </ul>
       <hr className="separator" />
@@ -57,7 +94,13 @@ const ProfileAndBio = props => {
       {posts.length ? (
         <ul className="post-container">
           {posts.map(each => (
-            <PostCard key={each.id} postImg={each.image} />
+            <li key={each.id} className="post-card">
+              <img
+                className="post-img"
+                alt={isMyProfile ? 'my post' : 'user post'}
+                src={each.image}
+              />
+            </li>
           ))}
         </ul>
       ) : (

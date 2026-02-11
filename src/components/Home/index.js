@@ -58,9 +58,9 @@ class Home extends Component {
         alt="failure view"
         className="fail-img"
       />
-      <h1 className="fail-desc">Something went wrong. Please try again</h1>
-      <button className="retry-btn" type="button" onClick={this.getProfile}>
-        Retry
+      <p className="fail-desc">Something went wrong. Please try again</p>
+      <button type="button" className="retry-btn" onClick={this.getPosts}>
+        Try again
       </button>
     </div>
   )
@@ -74,24 +74,21 @@ class Home extends Component {
   renderHome = () => {
     const {posts} = this.state
     return (
-      <>
-        <Header />
-        <div className="home-container">
-          <div className="slick">
-            <Stories />
-          </div>
-          <hr className="hr-line" />
-          <ul className="posts-container">
-            {posts.map(each => (
-              <PostItem key={each.postId} postDetails={each} />
-            ))}
-          </ul>
-        </div>
-      </>
+      <div className="home-container">
+        <ul className="slick">
+          <Stories />
+        </ul>
+        <hr className="hr-line" />
+        <ul className="posts-container">
+          {posts.map(each => (
+            <PostItem key={each.postId} postDetails={each} />
+          ))}
+        </ul>
+      </div>
     )
   }
 
-  render() {
+  renderPage = () => {
     const {status} = this.state
     switch (status) {
       case apiStatus.loading:
@@ -103,6 +100,15 @@ class Home extends Component {
       default:
         return null
     }
+  }
+
+  render() {
+    return (
+      <>
+        <Header />
+        {this.renderPage()}
+      </>
+    )
   }
 }
 

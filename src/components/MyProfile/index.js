@@ -75,7 +75,7 @@ class MyProfile extends Component {
 
   renderProfile = () => {
     const {profile} = this.state
-    return <ProfileAndBio profile={profile} />
+    return <ProfileAndBio profile={profile} isMyProfile />
   }
 
   renderPage = () => {
