@@ -42,7 +42,7 @@ class PostItem extends Component {
     const {isLiked, likesCount} = this.state
 
     return (
-      <li className="post-item" testid="postItem">
+      <li className="post-item" data-testid="postItem">
         <div className="profile-container">
           <img
             src={postDetails.profilePic}
