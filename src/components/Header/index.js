@@ -50,7 +50,7 @@ class Header extends Component {
               </Link>
               <h1 className="logo-name">Insta Share</h1>
             </div>
-            <div testid="searchIcon">
+            <div data-testid="searchIcon">
               <FiMenu className="menu-icon" onClick={this.onClickMenu} />
             </div>
           </div>
@@ -82,7 +82,7 @@ class Header extends Component {
                   </button>
                 </li>
               </ul>
-              <div testid="closeIcon">
+              <div data-testid="closeIcon">
                 <IoIosCloseCircle
                   className="close-icon"
                   onClick={this.onClickClose}
@@ -113,7 +113,7 @@ class Header extends Component {
                   value={searchValue}
                 />
                 <button
-                  testid="searchIcon"
+                  data-testid="searchIcon"
                   onClick={this.onSearchPosts}
                   type="button"
                   className="search-btn"
